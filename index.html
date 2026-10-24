@@ -39,7 +39,35 @@
       <footer><span>FINANCEIRO INTELIGENTE • Versão offline</span><span>Seus dados ficam somente neste navegador. Faça backups para não perdê-los.</span></footer>
     </main>
   </div>
-  <dialog id="settingsDialog"><form method="dialog" class="dialog-content"><h2>Configurações</h2><p>Os dados são salvos neste navegador. Limpar os dados do site pode apagá-los.</p><div class="dialog-actions"><button type="button" id="loadDemo" class="secondary-btn">Carregar demonstração</button><button type="button" id="clearData" class="danger-btn">Apagar todos os dados</button><button class="primary-btn">Fechar</button></div></form></dialog>
+  
+<dialog id="settingsDialog">
+  <form method="dialog" class="dialog-content">
+    <h2>Configurações</h2>
+    <p>Gerencie seus dados financeiros e mantenha cópias de segurança.</p>
+
+    <div class="dialog-actions">
+      <button type="button" id="settingsExportBackup" class="secondary-btn">
+        Salvar backup
+      </button>
+
+      <button type="button" id="settingsImportBackup" class="secondary-btn">
+        Restaurar backup
+      </button>
+
+      <button type="button" id="loadDemo" class="secondary-btn">
+        Carregar demonstração
+      </button>
+
+      <button type="button" id="clearData" class="danger-btn">
+        Apagar todos os dados
+      </button>
+
+      <button type="submit" class="primary-btn">
+        Fechar
+      </button>
+    </div>
+  </form>
+</dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
