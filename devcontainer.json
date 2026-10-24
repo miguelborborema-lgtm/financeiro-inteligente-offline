@@ -1,0 +1,8 @@
+{
+  "name": "Financeiro Inteligente Offline",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "forwardPorts": [5500],
+  "portsAttributes": {"5500": {"label": "Prévia do dashboard", "onAutoForward": "openPreview"}},
+  "postCreateCommand": "echo 'Projeto pronto. Execute: python3 -m http.server 5500'",
+  "customizations": {"vscode": {"extensions": ["esbenp.prettier-vscode"]}}
+}
