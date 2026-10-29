@@ -7,7 +7,9 @@
   <meta name="theme-color" content="#061727" />
   <title>Financeiro Inteligente • Seu painel financeiro</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="planejamento.css" />
   <script src="script.js" defer></script>
+  <script src="planejamento.js" defer></script>
 </head>
 <body>
   <div class="shell">
@@ -36,38 +38,33 @@
           <div class="records"><div class="filters"><label>Categoria<select id="filterCategory"><option value="">Todas as categorias</option></select></label><label>De<input id="filterFrom" type="date" /></label><label>Até<input id="filterTo" type="date" /></label><label>Tipo<select id="filterType"><option value="">Todos</option><option value="receita">Receitas</option><option value="despesa">Despesas</option></select></label><label>Ordenar<select id="sortBy"><option value="date-desc">Mais recentes</option><option value="date-asc">Mais antigos</option><option value="amount-desc">Maior valor</option><option value="amount-asc">Menor valor</option></select></label><button id="clearFilters" class="text-btn">Limpar filtros</button></div><div class="records-head"><h3>Movimentações</h3><span id="recordCount">0 lançamentos</span></div><div class="table-scroll"><table class="records-table"><thead><tr><th>Data</th><th>Descrição</th><th>Categoria</th><th>Tipo</th><th class="right">Valor</th><th class="right">Ações</th></tr></thead><tbody id="transactionsBody"></tbody></table></div><p id="emptyState" class="empty-state">Nenhum lançamento encontrado.</p></div></div>
       </section>
       <section class="panel category-panel"><div class="panel-heading"><h2>DESPESAS POR CATEGORIA</h2><span class="muted-label">Período dos filtros da lista</span></div><div id="categoryBars" class="category-bars"></div></section>
+
+      <section id="formulaDinheiro" class="panel fd-section" aria-labelledby="fdTitle">
+        <div class="fd-hero"><div><span class="fd-eyebrow">PLANEJAMENTO FINANCEIRO</span><h2 id="fdTitle">FÓRMULA DO <span>DINHEIRO</span></h2><p>Um plano prático para organizar seu salário, entender seus gastos e começar a construir sua reserva.</p></div><span class="fd-hero-icon" aria-hidden="true">◎</span></div>
+        <div class="fd-layout">
+          <div class="fd-card"><h3>Planeje sua renda mensal</h3><p class="fd-muted">Use sua renda líquida. A divisão 50/30/20 é uma referência ajustável, não uma obrigação.</p>
+            <label class="fd-field">Renda líquida mensal (R$)<input id="fdIncome" type="number" min="0" max="999999999" step="0.01" inputmode="decimal" placeholder="Ex.: 3000" /></label>
+            <div class="fd-actions"><button type="button" id="fdUseMonth" class="secondary-btn">Usar receitas do mês selecionado</button><button type="button" id="fdReset" class="secondary-btn">Restaurar 50/30/20</button></div>
+            <div class="fd-splits"><label>Essenciais <span id="fdEssentialsLabel">50%</span><input id="fdEssentials" type="number" min="0" max="100" step="1" value="50" /></label><label>Pessoais <span id="fdPersonalLabel">30%</span><input id="fdPersonal" type="number" min="0" max="100" step="1" value="30" /></label><label>Reserva e objetivos <span id="fdReserveLabel">20%</span><input id="fdReserve" type="number" min="0" max="100" step="1" value="20" /></label></div>
+            <p id="fdValidation" class="fd-validation" role="status" aria-live="polite"></p>
+            <div id="fdResults" class="fd-results" aria-live="polite"><div><span>Essenciais</span><strong id="fdEssentialsValue">R$ 0,00</strong><div class="fd-track"><i id="fdEssentialsBar"></i></div></div><div><span>Pessoais</span><strong id="fdPersonalValue">R$ 0,00</strong><div class="fd-track"><i id="fdPersonalBar"></i></div></div><div><span>Reserva e objetivos</span><strong id="fdReserveValue">R$ 0,00</strong><div class="fd-track"><i id="fdReserveBar"></i></div></div></div>
+            <div class="fd-actions"><button type="button" id="fdSave" class="primary-btn">Salvar planejamento</button></div><p id="fdSaveStatus" class="fd-muted" role="status"></p>
+          </div>
+          <div class="fd-card"><h3>Seu objetivo de economia</h3><p class="fd-muted">Defina um valor-alvo e veja quanto tempo levaria guardando uma quantia fixa por mês, sem considerar rendimentos.</p>
+            <label class="fd-field">Valor do objetivo (R$)<input id="fdGoal" type="number" min="0" max="999999999" step="0.01" inputmode="decimal" placeholder="Ex.: 5000" /></label><label class="fd-field">Valor já guardado (R$)<input id="fdSaved" type="number" min="0" max="999999999" step="0.01" inputmode="decimal" placeholder="Ex.: 500" /></label><p id="fdGoalResult" class="fd-goal-result">Preencha sua meta e sua renda para simular.</p>
+            <h3 class="fd-guide-title">Manual: por onde começar?</h3><div class="fd-guide">
+              <details open><summary>01 · Descubra para onde seu dinheiro vai</summary><p>Registre suas receitas e despesas por pelo menos um mês. Observe gastos recorrentes, contas essenciais e despesas que podem ser ajustadas.</p></details>
+              <details><summary>02 · Defina uma divisão possível</summary><p>Use 50% para essenciais, 30% para gastos pessoais e 20% para reserva e objetivos como ponto de partida. Se sua realidade for diferente, ajuste os percentuais sem comprometer necessidades básicas.</p></details>
+              <details><summary>03 · Comece sua reserva de emergência</summary><p>Defina um valor mensal viável e priorize uma reserva acessível para imprevistos. O tamanho ideal depende das despesas, da estabilidade da renda e das suas responsabilidades.</p></details>
+              <details><summary>04 · Faça o dinheiro sobrar com constância</summary><p>Revise assinaturas, compare preços e planeje compras. Separar um valor assim que receber pode ajudar, desde que suas contas essenciais estejam cobertas.</p></details>
+              <details><summary>05 · Revise seu plano todo mês</summary><p>Compare o planejado com os gastos reais, ajuste as metas e acompanhe sua evolução. Evite contar com retornos de investimentos para fechar o orçamento.</p></details>
+            </div></div>
+        </div><p class="fd-disclaimer">Conteúdo educativo. Os percentuais e prazos são simulações, não garantias de economia ou recomendações de investimento. Os dados ficam apenas neste navegador.</p>
+      </section>
       <footer><span>FINANCEIRO INTELIGENTE • Versão offline</span><span>Seus dados ficam somente neste navegador. Faça backups para não perdê-los.</span></footer>
     </main>
   </div>
-  
-<dialog id="settingsDialog">
-  <form method="dialog" class="dialog-content">
-    <h2>Configurações</h2>
-    <p>Gerencie seus dados financeiros e mantenha cópias de segurança.</p>
-
-    <div class="dialog-actions">
-      <button type="button" id="settingsExportBackup" class="secondary-btn">
-        Salvar backup
-      </button>
-
-      <button type="button" id="settingsImportBackup" class="secondary-btn">
-        Restaurar backup
-      </button>
-
-      <button type="button" id="loadDemo" class="secondary-btn">
-        Carregar demonstração
-      </button>
-
-      <button type="button" id="clearData" class="danger-btn">
-        Apagar todos os dados
-      </button>
-
-      <button type="submit" class="primary-btn">
-        Fechar
-      </button>
-    </div>
-  </form>
-</dialog>
+  <dialog id="settingsDialog"><form method="dialog" class="dialog-content"><h2>Configurações</h2><p>Os dados são salvos neste navegador. Limpar os dados do site pode apagá-los.</p><div class="dialog-actions"><button type="button" id="settingsExportBackup" class="secondary-btn">Salvar backup</button><button type="button" id="settingsImportBackup" class="secondary-btn">Restaurar backup</button><button type="button" id="loadDemo" class="secondary-btn">Carregar demonstração</button><button type="button" id="clearData" class="danger-btn">Apagar todos os dados</button><button class="primary-btn">Fechar</button></div></form></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
