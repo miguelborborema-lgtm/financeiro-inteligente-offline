@@ -66,9 +66,9 @@
 <section id="patrimonio" class="panel pm-section" aria-labelledby="pmTitle">
 <div class="pm-head"><div><span class="pm-tag">NOVO • PLANEJAMENTO PATRIMONIAL</span><h2 id="pmTitle">MANUAL DO PATRIMÔNIO</h2><p>Transforme uma meta em um plano mensal. Compare cenários de rendimento e descubra o esforço necessário para alcançá-la.</p></div><button type="button" id="pmDownload" class="secondary-btn">Baixar manual (.html)</button></div>
 <div class="pm-grid"><div class="pm-card"><h3>Monte seu plano</h3>
-<label>Quanto quer acumular? (R$)<input id="pmTarget" type="number" min="1" step="0.01" value="30000"></label>
-<label>Quanto já tem investido? (R$)<input id="pmInitial" type="number" min="0" step="0.01" value="0"></label>
-<label>Quanto consegue investir por mês? (R$)<input id="pmDeposit" type="number" min="0" step="0.01" value="500"></label>
+<label>Quanto quer acumular? (R$)<input id="pmTarget" type="text" inputmode="decimal" autocomplete="off" data-money="brl" value="30000"></label>
+<label>Quanto já tem investido? (R$)<input id="pmInitial" type="text" inputmode="decimal" autocomplete="off" data-money="brl" value="0"></label>
+<label>Quanto consegue investir por mês? (R$)<input id="pmDeposit" type="text" inputmode="decimal" autocomplete="off" data-money="brl" value="500"></label>
 <label>Prazo desejado<input id="pmDeadline" type="month" value="2027-06"></label>
 <label>Referência de rendimento<select id="pmBenchmark"><option value="zero">Sem rendimento</option><option value="selic">Selic (cenário bruto)</option><option value="cdi" selected>100% do CDI (cenário bruto)</option><option value="cdb">CDB (% do CDI)</option><option value="custom">Taxa personalizada</option></select></label>
 <label id="pmCdbWrap">CDB — percentual do CDI (%)<input id="pmCdbPct" type="number" min="0" max="300" step="1" value="100"></label>
