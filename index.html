@@ -8,8 +8,10 @@
   <title>Financeiro Inteligente • Seu painel financeiro</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="planejamento.css" />
+  <link rel="stylesheet" href="patrimonio.css" />
   <script src="script.js" defer></script>
   <script src="planejamento.js" defer></script>
+  <script src="patrimonio.js" defer></script>
 </head>
 <body>
   <div class="shell">
@@ -61,6 +63,22 @@
             </div></div>
         </div><p class="fd-disclaimer">Conteúdo educativo. Os percentuais e prazos são simulações, não garantias de economia ou recomendações de investimento. Os dados ficam apenas neste navegador.</p>
       </section>
+<section id="patrimonio" class="panel pm-section" aria-labelledby="pmTitle">
+<div class="pm-head"><div><span class="pm-tag">NOVO • PLANEJAMENTO PATRIMONIAL</span><h2 id="pmTitle">MANUAL DO PATRIMÔNIO</h2><p>Transforme uma meta em um plano mensal. Compare cenários de rendimento e descubra o esforço necessário para alcançá-la.</p></div><button type="button" id="pmDownload" class="secondary-btn">Baixar manual (.html)</button></div>
+<div class="pm-grid"><div class="pm-card"><h3>Monte seu plano</h3>
+<label>Quanto quer acumular? (R$)<input id="pmTarget" type="number" min="1" step="0.01" value="30000"></label>
+<label>Quanto já tem investido? (R$)<input id="pmInitial" type="number" min="0" step="0.01" value="0"></label>
+<label>Quanto consegue investir por mês? (R$)<input id="pmDeposit" type="number" min="0" step="0.01" value="500"></label>
+<label>Prazo desejado<input id="pmDeadline" type="month" value="2027-06"></label>
+<label>Referência de rendimento<select id="pmBenchmark"><option value="zero">Sem rendimento</option><option value="selic">Selic (cenário bruto)</option><option value="cdi" selected>100% do CDI (cenário bruto)</option><option value="cdb">CDB (% do CDI)</option><option value="custom">Taxa personalizada</option></select></label>
+<label id="pmCdbWrap">CDB — percentual do CDI (%)<input id="pmCdbPct" type="number" min="0" max="300" step="1" value="100"></label>
+<label id="pmCustomWrap" hidden>Taxa anual personalizada (%)<input id="pmCustomRate" type="number" min="0" max="100" step="0.01" value="8"></label>
+<div class="pm-rates"><span>Selic de referência: <b>13,75% a.a.</b></span><span>CDI de referência: <b>13,65% a.a.</b></span><small>Selic: BC, 17/09/2026 • CDI: 29/10/2026. Taxas fixadas nesta versão, não são atualizadas automaticamente.</small></div>
+<button id="pmSave" type="button" class="primary-btn">Salvar minha meta</button><p id="pmStatus" aria-live="polite"></p></div>
+<div class="pm-card"><h3>Seu caminho até a meta</h3><div class="pm-stats"><div><small>Prazo estimado</small><strong id="pmMonths">—</strong></div><div><small>Valor projetado no prazo</small><strong id="pmAtDeadline">—</strong></div><div><small>Aporte necessário/mês</small><strong id="pmRequired">—</strong></div><div><small>Rendimento bruto estimado</small><strong id="pmYield">—</strong></div></div><p id="pmSummary" class="pm-summary" aria-live="polite"></p><div class="pm-bars"><div><span>Aportes e valor inicial</span><b id="pmPrincipal">—</b></div><div><span>Juros estimados</span><b id="pmInterest">—</b></div></div><h3>Patrimônio projetado</h3><div id="pmProjection" class="pm-projection" role="img" aria-label="Projeção de evolução do patrimônio"></div></div></div>
+<div class="pm-guide"><h3>Os 5 passos do patrimônio</h3><div class="pm-steps"><div><b>01 • Conheça seu orçamento</b><p>Registre receitas e despesas para encontrar um aporte sustentável.</p></div><div><b>02 • Prepare sua reserva</b><p>Separe recursos para imprevistos com liquidez adequada.</p></div><div><b>03 • Defina objetivo e prazo</b><p>Escolha o valor, a data e o quanto já acumulou.</p></div><div><b>04 • Invista com regularidade</b><p>Priorize constância e compare cenários, sem presumir retorno garantido.</p></div><div><b>05 • Revise mensalmente</b><p>Ajuste aportes, prazos e taxas conforme sua realidade.</p></div></div></div>
+<p class="pm-note">Simulações educativas com aportes ao final de cada mês e taxa anual constante convertida em taxa mensal equivalente. Valores brutos: não incluem IR, IOF, taxas, inflação ou oscilações futuras. Selic não é rendimento líquido de investimento; CDBs têm condições e riscos próprios. Não há garantia de atingir a meta.</p>
+</section>
       <footer><span>FINANCEIRO INTELIGENTE • Versão offline</span><span>Seus dados ficam somente neste navegador. Faça backups para não perdê-los.</span></footer>
     </main>
   </div>
